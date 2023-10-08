@@ -23,7 +23,7 @@ public class Principal_banco {
 				saque(contas);
 				break;
 			case 4:
-				tranferencia(contas);
+				transferencia(contas);
 				break;
 			case 5:
 				exibir();
@@ -104,7 +104,7 @@ public class Principal_banco {
 		int agenc = Integer.parseInt(JOptionPane.showInputDialog(null,"qual o número da agencia"));
 		if (validar(contas,num,agenc)) {
 			JOptionPane.showMessageDialog(null,"Essa conta não consta no sistema \n");
-			deposito(contas);
+			saque(contas);
 		}
 		Double val = Double.parseDouble(JOptionPane.showInputDialog(null,"qual o valor"));
 		for (Conta c:contas) {
@@ -117,12 +117,12 @@ public class Principal_banco {
 	
 	/*	FAZER TRANFERENCIA 
 	 * -------------------------------------------------------------------------------------*/
-	private static void tranferencia(ArrayList <Conta> contas) {
+	private static void transferencia(ArrayList <Conta> contas) {
 		int num = Integer.parseInt(JOptionPane.showInputDialog(null,"Retirar em qual o número da conta"));
 		int agenc = Integer.parseInt(JOptionPane.showInputDialog(null,"Qual o número da agencia"));
 		if (validar(contas,num,agenc)) {
 			JOptionPane.showMessageDialog(null,"Essa conta não consta no sistema \n");
-			deposito(contas);
+			transferencia(contas);
 		}
 		Double val = Double.parseDouble(JOptionPane.showInputDialog(null,"qual o valor"));
 		for (Conta c:contas) {
@@ -134,7 +134,7 @@ public class Principal_banco {
 		agenc = Integer.parseInt(JOptionPane.showInputDialog(null,"Qual o número da agencia"));
 		if (validar(contas,num,agenc)) {
 			JOptionPane.showMessageDialog(null,"Essa conta não consta no sistema \n");
-			deposito(contas);
+			transferencia(contas);
 		}
 		for (Conta c:contas) {
 			if (num == c.num && agenc==c.agen) {
@@ -153,7 +153,7 @@ public class Principal_banco {
 		int agenc = Integer.parseInt(JOptionPane.showInputDialog(null,"qual o número da agencia"));
 		if (validar(contas,num,agenc)) {
 			JOptionPane.showMessageDialog(null,"Essa conta não consta no sistema \n");
-			deposito(contas);
+			exibir();
 		}
 		for (Conta c:contas) {
 			if (num == c.num && agenc==c.agen) {
@@ -162,7 +162,6 @@ public class Principal_banco {
 		}	
 	}
 	/* -----------------------------------------------------------------------------------------*/
-	
 	
 	/*	VALIDAR DADOS
 	 * -------------------------------------------------------------------------------------*/
