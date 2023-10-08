@@ -30,11 +30,18 @@ public class Conta_especial extends Conta {
 	public void cadastrasald(){
 		setSaldes(Double.parseDouble(JOptionPane.showInputDialog(null,"Qual o limite de crédito")));
 	}
+	/* -----------------------------------------------------------------------------------------*/
+
+	
+	/*	SAQUE DO CRÉDITO
+	 * -------------------------------------------------------------------------------------*/
 	public void Saque (Double val) {
 		if (sald >= val){
 			setSald(sald -=val);
 		}
-		if (saldes >= val){
+		else if (saldes+sald>= val){
+			setSaldes(saldes+sald);
+			sald = 0.00;
 			setSaldes(saldes -=val);
 		}
 		else {
